@@ -16,15 +16,15 @@ namespace Parallax
 
         private void LateUpdate()
         {
-            if (deviceCamera == null &&
-				eyeCamera == null &&
-				arCamera == null)
+            if (deviceCamera == null ||
+				eyeCamera == null ||
+                arCamera == null)
 				return;
 
             Quaternion q = deviceCamera.transform.rotation * Quaternion.Euler(Vector3.up * 180f);
             eyeCamera.transform.rotation = q;
 
-            if (arFaceObj == null && arFace == null) {
+            if (arFaceObj == null || arFace == null) {
                 try
                 {
                     arFaceObj = GameObject.FindWithTag("ARFace");
