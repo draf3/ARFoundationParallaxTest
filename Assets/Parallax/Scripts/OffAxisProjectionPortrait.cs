@@ -19,7 +19,11 @@ namespace Parallax
             if (deviceCamera == null ||
 				eyeCamera == null ||
                 arCamera == null)
-				return;
+            {
+                Debug.LogWarning("deviceCamera, eyeCamera, arCameraがセットされていません");
+                return;
+            }
+				
 
             Quaternion q = deviceCamera.transform.rotation * Quaternion.Euler(Vector3.up * 180f);
             eyeCamera.transform.rotation = q;
